@@ -1,0 +1,50 @@
+<%- include('partials/nav') -%>
+  <div class="products-tab">
+      <div class="product-tab">
+        <p class='path-product'><a style='color: white; text-decoration: none;' href="/products">Products</a> > <%=product.type %> > </p>
+        <div class="product-main">
+          <div class="editbuttons">
+            <a href="<%= product.admin %>"><button type="button" name="button">Edit</button></a>
+          </div>
+          <div class="product-upper">
+            <img id='main-img' class='product-img' src='<%= product.image_url %>' alt="apex">
+          </div>
+          <div class="product-lower">
+            <div class="otherviews">
+              <img class='otherimg' src='<%= product.image_url %>' alt="apex">
+              <img class='otherimg' src='<%= product.image_url %>' alt="apex">
+              <img class='otherimg' src='<%= product.image_url %>' alt="apex">
+              <img class='otherimg' src='<%= product.image_url %>' alt="apex">
+              <img class='otherimg' src='<%= product.image_url %>' alt="apex">
+            </div>
+            <div class="product-data">
+              <h3 class='items-item-name'><%= product.model %></h3>
+              <p class='items-item-brand product-brand'><%= product.brand.name %></p>
+              <p class='items-item-stock'>In stock: <%= productsCount %></p>
+              <p class='items-item-name'><%= product.description %></p>
+              <h2 class='items-item-price'>Price: <%= product.price %>EUR</h2>
+            </div>
+            <div class="availability">
+              <h3 class='items-item-name'>Check if product is available in your closest shop:</h3>
+              <select class='product-shop' name="yourshop">
+                <% for (shop of shops) { %>
+                <option value="<%= shop._id %>"> <%=shop.name %></option>
+                <% } %>
+              </select>
+              <p class='isavailable'>Available</p>
+              <button class='mainphotos-productsbutton product-button' type="button" name="button">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div id='modal'>
+    <img id='modal-img' alt="modal">
+    <div class="caption">
+      <%=product.model %>
+    </div>
+  </div>
+
+
+<%- include('partials/footerproduct') -%>
+<%- include('partials/aboutme') -%>

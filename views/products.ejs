@@ -1,0 +1,82 @@
+<%- include('partials/nav') -%>
+
+  <div class="products-tab">
+    <div class="products-nav">
+      <ul>
+        <li><a href="#">NEWEST</a></li>
+        <li><a href="#">ON SALE</a></li>
+        <li><a href="#">OTHER</a></li>
+        <li><a href="#">Lorem Ipsum</a></li>
+        <li><a href="#">Lorem Ipsum</a></li>
+        <li><a href="#">Lorem Ipsum</a></li>
+      </ul>
+    </div>
+    <div class="products-main">
+      <div class="filter-bar">
+        <div class="path">Products &gt;</div>
+        <form action="/" method="post">
+          <label for="sort">Sort:</label>
+          <select name="sort">
+            <option value="newest" selected >Newest</option>
+            <option value="oldest" >Oldest</option>
+            <option value="pricehigh">Price &#9660;</option>
+            <option value="pricelow">Price &#9650;</option>
+          </select>
+        </form>
+      </div>
+      <div class="categories-column">
+        <p>Categories</p>
+        <ul>
+          <li><a href="#" onclick='seeOnly("Keyboard")'>Keyboards (<%= keyboardsCounter %>)</a></li>
+          <li><a href="#" onclick='seeOnly("Mouse")'>Mouses (<%= mousesCounter %>)</a></li>
+          <li><a href="#">Headphones</a></li>
+          <li><a href="#">Monitors</a></li>
+          <li id='showeverything' onclick=showEverything()><a>All</a></li>
+          <li><img src='/images/razer-logo.png' alt="razer"></li>
+          <li><img src='/images/roccat-logo.png' alt="razer"></li>
+          <li><img src='/images/steelseries-logo.png' alt="razer"></li>
+          <li><img src='/images/logitech-logo.png' alt="razer"></li>
+        </ul>
+      </div>
+      <div class="items-column">
+        <% for (keyboard of keyboards)  {%>
+        <div class="items-item">
+          <div class='itemType' style='display:none;'><%= keyboard.type %></div>
+          <a href="<%= keyboard.url %>">
+            <div class="items-item-box">
+            <img src="<%= keyboard.image_url %>" alt="photo">
+            <div class="items-item-description">
+              <h4 class='items-item-brand'><%= keyboard.brand.name %></h4>
+              <h5 class='items-item-name'><%= keyboard.model %></h5>
+                <h5 class='items-item-status'>Status: Available</h5>
+                <h3 class='items-item-price'>Price:<%=keyboard.price%> EUR</h3>
+            </div>
+            <div class="items-icon">&#9825;</div>
+          </div>
+        </a>
+        </div>
+        <% } %>
+        <% for (mouse of mouses) { %>
+          <div class="items-item">
+            <div class='itemType' style='display:none;'><%= mouse.type %></div>
+            <a href="<%= mouse.url %>">
+              <div class="items-item-box">
+              <img src="<%= mouse.image_url %>" alt="photo">
+              <div class="items-item-description">
+                <h4 class='items-item-brand'><%= mouse.brand.name %></h4>
+                <h5 class='items-item-name'><%= mouse.model %></h5>
+                  <h5 class='items-item-status'>Status: Available</h5>
+                  <h3 class='items-item-price'>Price:<%=mouse.price%> EUR</h3>
+              </div>
+              <div class="items-icon">&#9825;</div>
+            </div>
+          </a>
+          </div>
+        <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%- include('partials/footerproducts') -%>
+<%- include('partials/aboutme') -%>

@@ -1,0 +1,221 @@
+<%- include('partials/navmain') -%>
+
+    <div class="mainphotos-container slide1">
+      <div class="photo anim">
+        <img src="/images/gaming1.jpg" alt="photo1">
+        <div class="text">By gamers for gamers</div>
+      </div>
+      <div class="photo anim">
+        <img src="/images/gaming2.jpg" alt="photo1">
+        <div class="text">Let's get this bread</div>
+      </div>
+      <div class="photo anim">
+        <img src="/images/gaming3.jpg" alt="photo1">
+        <div class="text">Quality and reasonable price</div>
+      </div>
+      <button class='mainphotos-productsbutton' type="button" name="button"><a href="/products">BROWSE PRODUCTS</a></button>
+    </div>
+    <div class="info-small">
+      <p><i class='fas fa-globe-europe'></i>Tracked deliveries. Free shipping over 50 Euros</p>
+    </div>
+    <div class="content-show">
+      <div class="content-tab">
+        <div class="content-article">
+          <div class="content-box mouses">
+            <h2><span class='new'>NEW</span> Ergonomic Mouses</h2>
+            <div class="imgbox">
+              <a href="<%= mouses[0].url %>"><div class="imgbox-l">
+                <img class='mouse-pic mouse-pic-l' src="<%= mouses[0].image_url %>" alt="<%= mouses[0].model %>">
+                <p class='mouse-name'> <%= mouses[0].model %></p>
+                <p class='price'><%= mouses[0].price %>EUR</p>
+              </div></a>
+
+              <a href="<%= mouses[1].url %>"><div class="imgbox-r">
+                <img class='mouse-pic mouse-pic-r' src="<%= mouses[1].image_url %>" alt="<%= mouses[1].model %>">
+                <p class='mouse-name'><%= mouses[1].model %></p>
+                <p class='price'><%= mouses[1].price %>EUR</p>
+              </div></a>
+
+            </div>
+            <p>Broad variety of mouses from many producers</p> <br>
+            <button class='other' type="button" name="button"><a class='browseall' href="/products">BROWSE ALL</a></button>
+          </div>
+        </div>
+        <div class="content-article">
+          <div class="content-box">
+            <h2><span class='new'>NEW</span> Gaming Keyboards</h2>
+            <div class="imgbox bar-contain">
+              <div class="imgbox-bar-controls">
+                <span onclick='keyboardBar(-1)'>&#10094;</span>
+                <span onclick='keyboardBar(1)'>&#10095;</span>
+              </div>
+              <div class="imgbox-bar">
+                <div class="keyboard-tab">
+                  <a href="<%= keyboards[0].url %>">
+                  <img class='keyboard-tab-img' src="<%= keyboards[0].image_url %>" alt="<%= keyboards[0].model %>">
+                  <div class="keyboard-tab-text">
+                    <p class='orange'><%= keyboards[0].model %></p>
+                    <p class='description'><%= keyboards[0].description %></p>
+                    <h3 class='orange keyboardprice'><%=keyboards[0].price%><span class='eur'>EUR</span></h3>
+                    <button class='other2' type="button" name="button">CHECK OUT</button>
+                  </div>
+                  </a>
+                </div>
+                <div class="keyboard-tab">
+                  <a href="<%= keyboards[1].url %>">
+                  <img class='keyboard-tab-img' src="<%= keyboards[1].image_url %>" alt="<%= keyboards[1].model %>">
+                  <div class="keyboard-tab-text">
+                    <p class='orange'><%= keyboards[1].model %></p>
+                    <p class='description'><%= keyboards[1].description %></p>
+                    <h3 class='orange keyboardprice'><%=keyboards[1].price%><span class='eur'>EUR</span></h3>
+                    <button class='other2' type="button" name="button">CHECK OUT</button>
+                  </div>
+                  </a>
+                </div>
+                <div class="keyboard-tab">
+                  <a href="<%= keyboards[2].url %>">
+                  <img class='keyboard-tab-img' src="<%= keyboards[2].image_url %>" alt="<%= keyboards[2].model %>">
+                  <div class="keyboard-tab-text">
+                    <p class='orange'><%= keyboards[2].model %></p>
+                    <p class='description'><%= keyboards[2].description %></p>
+                    <h3 class='orange keyboardprice'><%=keyboards[2].price%><span class='eur'>EUR</span></h3>
+                    <button class='other2' type="button" name="button">CHECK OUT</button>
+                  </div>
+                  </a>
+                </div>
+                <div class="keyboard-tab">
+                  <a href="<%= keyboards[3].url %>">
+                  <img class='keyboard-tab-img' src="<%= keyboards[3].image_url %>" alt="<%= keyboards[3].model %>">
+                  <div class="keyboard-tab-text">
+                    <p class='orange'><%= keyboards[3].model %></p>
+                    <p class='description'><%= keyboards[3].description %></p>
+                    <h3 class='orange keyboardprice'><%=keyboards[3].price%><span class='eur'>EUR</span></h3>
+                    <button class='other2' type="button" name="button">CHECK OUT</button>
+                  </div>
+                  </a>
+                </div>
+                <div class="keyboard-tab">
+                  <a href="<%= keyboards[4].url %>">
+                  <img class='keyboard-tab-img' src="<%= keyboards[4].image_url %>" alt="<%= keyboards[4].model %>">
+                  <div class="keyboard-tab-text">
+                    <p class='orange'><%= keyboards[4].model %></p>
+                    <p class='description'><%= keyboards[4].description %></p>
+                    <h3 class='orange keyboardprice'><%=keyboards[4].price%><span class='eur'>EUR</span></h3>
+                    <button class='other2' type="button" name="button">CHECK OUT</button>
+                  </div>
+                  </a>
+                </div>
+                <div class="keyboard-tab">
+                  <a href="<%= keyboards[5].url %>">
+                  <img class='keyboard-tab-img' src="<%= keyboards[5].image_url %>" alt="<%= keyboards[5].model %>">
+                  <div class="keyboard-tab-text">
+                    <p class='orange'><%= keyboards[5].model %></p>
+                    <p class='description'><%= keyboards[5].description %></p>
+                    <h3 class='orange keyboardprice'><%=keyboards[5].price%><span class='eur'>EUR</span></h3>
+                    <button class='other2' type="button" name="button">CHECK OUT</button>
+                  </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <p>Best keyboards for working people and gamers</p>
+            <br>
+            <button class='other' type="button" name="button"><a class='browseall' href="/products">BROWSE ALL</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="awards-tab">
+        <div class="award-card">
+          <div class="award-main">
+            <i class='fas fa-shield-alt'></i>
+            <h4>Reliability</h4>
+            <p>The products you're about to purchase are known for their quality. Hundreds of thousand people around the globe confirm that.</p>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="award-main">
+            <i class='fas fa-clock'></i>
+            <h4>24/7 Support</h4>
+            <p>If by any chance You've encountered a problem, You're always welcome to call our support lines, we provide our services in many countries in different time-zones!</p>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="award-main">
+            <i class='fas fa-award'></i>
+            <h4>Award Winning</h4>
+            <p>We've proven ourselves many times. Products we offer come only from the highest-rated producers.</p>
+          </div>
+        </div>
+    </div>
+    <div class="mainphotos-container slide2">
+      <div class="slide-box ondisplay">
+        <img src="/images/background3.png" alt="photo1">
+        <div class="review">
+          <div class="review-imgbox">
+            <img class='review-img' src="/images/person.png" alt="Person">
+          </div>
+          <div class="review-textbox">
+            <h3>Today I learned that one shop can contain everything that I would ever need. Now it's pointless to search for other sites. </h3>
+            <p>- Papa Jones</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide-box">
+        <img src="/images/background4.jpg" alt="photo1">
+        <div class="review">
+          <div class="review-imgbox">
+            <img class='review-img' src="/images/person.png" alt="Person">
+          </div>
+          <div class="review-textbox">
+            <h3>Incredible! The quality is astonishing, and the delivery was extremely fast! I can't complain! </h3>
+            <p>- Andy Jones, Engineer at Facebook</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide-box">
+        <img src="/images/background2.png" alt="photo1">
+        <div class="review">
+          <div class="review-imgbox">
+            <img class='review-img' src="/images/person.png" alt="Person">
+          </div>
+          <div class="review-textbox">
+            <h3>Went through countless of shops, finally someone knowing what they're doing!</h3>
+            <p>- Jeremy Brown, CEO at Twitter</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide-box">
+        <img src="/images/background5.jpg" alt="photo1">
+        <div class="review">
+          <div class="review-imgbox">
+            <img class='review-img' src="/images/person.png" alt="Person">
+          </div>
+          <div class="review-textbox">
+            <h3>Products of the highest quality. I'm going to proudly recommend this shop to my coworkers! I'm so glad I've found this site!</h3>
+            <p>- Jon Smith, some cool guy</p>
+          </div>
+        </div>
+      </div>
+      <a class="prev" onclick="reviewChangeIndex(-1)">&#10094;</a>
+      <a class="next" onclick="reviewChangeIndex(1)">&#10095;</a>
+    </div>
+    <div class="sponsor-tab">
+      <div class="sponsor-main">
+        <p class='sponsor-p'>Our sponsors</p>
+        <div class="sponsorbox">
+          <img class='sponsor-img' src="/images/razer-logo.png" alt="sponsor-img">
+        </div>
+        <div class="sponsorbox">
+          <img class='sponsor-img' src="/images/steelseries-logo.png" alt="sponsor-img">
+        </div>
+        <div class="sponsorbox">
+          <img class='sponsor-img' src="/images/roccat-logo.png" alt="sponsor-img">
+        </div>
+        <div class="sponsorbox">
+          <img class='sponsor-img' src="/images/logitech-logo.png" alt="sponsor-img">
+        </div>
+      </div>
+
+<%- include('partials/footermain') -%>
+<%- include('partials/aboutme') -%>

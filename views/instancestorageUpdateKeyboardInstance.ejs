@@ -1,0 +1,50 @@
+<%- include('partials/nav') -%>
+
+<div class="admin-tab">
+  <div class="admin-main">
+    <div class="instancedata">
+
+      <div class="tab">
+        <p>Instance - Update</p>
+        <form id='updateKeyboardInstance' action="" method="post">
+          <label for="keyboardInstanceTypeUpdate">Type:</label>
+          <select id='keyboardInstanceTypeUpdate' name="keyboardInstanceTypeUpdate">
+            <% for (x of keyboards ) { %>
+              <% if (x.model == product.type.model) { %>
+                <option value="<%= x._id %>" selected><%= x.model %></option>
+                <% } else { %>
+              <option value="<%= x._id %>"><%= x.model %></option>
+              <% } %>
+              <% } %>
+          </select>
+          <label for="keyboardInstanceShopUpdate">In shop:</label>
+          <select id='keyboardInstanceShopUpdate' name="keyboardInstanceShopUpdate">
+            <% for (x of shops) { %>
+              <% if (x.name == product.inshop.name) { %>
+              <option value="<%= x._id %>" selected><%= x.name %></option>
+              <% } else { %>
+                <option value="<%= x._id %>"><%= x.name %></option>
+                <% } %>
+              <% } %>
+          </select>
+          <label for="keyboardInstanceStatusUpdate">Status:</label>
+          <select id='keyboardInstanceStatusUpdate' name="keyboardInstanceStatusUpdate">
+            <option value="Available">Available</option>
+            <option value="Sold">Sold</option>
+            <option value="Maintenance">Maintenance</option>
+          </select>
+          <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+          <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("updateKeyboardInstance")' name="button">Update Keyboard Instance</button>
+
+        </form>
+        <form id='deleteKeyboardInstance' class='fastform' action="/storage/keyboardinstance/delete" method="post">
+          <input type="hidden" name="productid" value="<%= product._id %>">
+          <input type="password" name="adminpassword" value="" placeholder="Admin password here to delete">
+          <button class='mainphotos-productsbutton product-button adminbutton deleteinstance' style='background-color: darkorange;' onclick='submitform("deleteKeyboardInstance")' name="button">Delete Keyboard Instance</button>
+        </form>
+      </div>
+    </div>
+</div>
+</div>
+
+<script src="/javascripts/admin-room-storage.js" charset="utf-8"></script>

@@ -1,0 +1,21 @@
+<%- include('partials/nav') -%>
+
+<div class="admin-tab">
+  <div class="admin-main">
+    <h1>Keyboard Instances:</h1>
+      <div class="instance-storage">
+  <% for (keyboard of keyboardInstances) { %>
+    <p><a href="<%= keyboard.url %>"><%= keyboard.type.model %> - <%= keyboard._id %> - <% if (keyboard.status == 'Available') { %> <span style='color: green;'><%= keyboard.status %></span><% } else if (keyboard.status == 'Maintenance') { %> <span style='color: orange;'><%= keyboard.status %></span> <% } else if (keyboard.status == 'Sold') { %> <span style='color: gold;'><%= keyboard.status %></span><% } %> -  <%= keyboard.inshop.name %></a></p>
+  <% } %>
+    </div>
+
+
+<h1>Mouse Instances:</h1>
+<div class="instance-storage">
+
+<% for (mouse of mouseInstances) { %>
+      <p><a href="<%= mouse.url %>"><%= mouse.type.model %> - <%= mouse._id %> - <% if (mouse.status == 'Available') { %> <span style='color: green;'><%= mouse.status %></span><% } else if (mouse.status == 'Maintenance') { %> <span style='color: orange;'><%= mouse.status %></span> <% } else if (mouse.status == 'Sold') { %> <span style='color: gold;'><%= mouse.status %></span><% } %> -  <%= mouse.inshop.name %></a></p>
+  <% } %>
+</div>
+</div>
+</div>

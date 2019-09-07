@@ -1,0 +1,51 @@
+<%- include('partials/nav') -%>
+
+<div class="admin-tab">
+  <div class="admin-main">
+    <div class="instancedata">
+
+      <div class="tab">
+        <p>Instance - Update</p>
+        <form id='updateMouseInstance' action="" method="post">
+          <label for="mouseInstanceTypeUpdate">Type:</label>
+          <select id='mouseInstanceTypeUpdate' name="mouseInstanceTypeUpdate">
+            <% for (x of mouses ) { %>
+              <% if (x.model == product.type.model) { %>
+                <option value="<%= x._id %>" selected><%= x.model %></option>
+                <% } else { %>
+              <option value="<%= x._id %>"><%= x.model %></option>
+              <% } %>
+              <% } %>
+          </select>
+          <label for="mouseInstanceShopUpdate">In shop:</label>
+          <select id='mouseInstanceShopUpdate' name="mouseInstanceShopUpdate">
+            <% for (x of shops) { %>
+              <% if (x.name == product.inshop.name) { %>
+              <option value="<%= x._id %>" selected><%= x.name %></option>
+              <% } else { %>
+                <option value="<%= x._id %>"><%= x.name %></option>
+                <% } %>
+              <% } %>
+          </select>
+          <label for="mouseInstanceStatusUpdate">Status:</label>
+          <select id='mouseInstanceStatusUpdate' name="mouseInstanceStatusUpdate">
+            <option value="Available">Available</option>
+            <option value="Sold">Sold</option>
+            <option value="Maintenance">Maintenance</option>
+          </select>
+          <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+          <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("updateMouseInstance")' name="button">Update Mouse Instance</button>
+
+        </form>
+        <form id='deleteMouseInstance' class='fastform' action="/storage/mouseinstance/delete" method="post">
+          <input type="hidden" name="productid" value="<%= product._id %>">
+          <input type="password" name="adminpassword" value="" placeholder="Admin password here to delete">
+          <button class='mainphotos-productsbutton product-button adminbutton deleteinstance' style='background-color: darkorange;' onclick='submitform("deleteMouseInstance")' name="button">Delete Mouse Instance</button>
+        </form>
+
+      </div>
+    </div>
+</div>
+</div>
+
+<script src="/javascripts/admin-room-storage.js" charset="utf-8"></script>

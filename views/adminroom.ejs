@@ -1,0 +1,480 @@
+<%- include('partials/nav') -%>
+
+  <div class="admin-tab">
+    <div class="admin-main">
+      <div class="admin-category">
+        <p style='margin: 30px;padding:10px 0;border-bottom: 1px solid white;width: 80%; display:inline-block; cursor:default;'>Choose object to control</p>
+        <ul>
+          <li class='summon-tab'>Keyboard</li>
+          <li class='summon-tab'>Keyboard - instance</li>
+          <li class='summon-tab'>Mouse</li>
+          <li class='summon-tab'>Mouse - instance</li>
+          <li class='summon-tab'>Shop</li>
+          <li style='color: #333333;cursor:default'>Country</li>
+          <li style='color: #333333;cursor:default'>Sponsor</li>
+        </ul>
+        <p style='margin: 30px;padding:10px 0;border-bottom: 1px solid orange;width: 80%; display:inline-block; cursor:pointer;'>What the site lacks</p>
+        <ul>
+          <li class='todo'>Shops and countries page</li>
+          <li class='todo'>Register and login</li>
+          <li class='todo'>Comment section</li>
+          <li class='todo'>Not messy css code</li>
+          <li class='todo'>Adding multiple items at once</li>
+          <li class='todo'>Deleting an object with associated items</li>
+        </ul>
+        <p style='margin: 30px;padding:10px 0;border-bottom: 1px solid orange;width: 80%; display:inline-block; cursor:pointer;'><a href="/storage">INSTANCE STORAGE</a></p>
+      </div>
+      <!-- KEYBOARD CREATE -->
+      <div class="admin-menu keyboard-create-tab">
+        <div class="before-tab">
+          <div class="create-update-delete">
+              <button class='cud-button' type="button" name="button">Create Keyboard</button>
+              <button class='cud-button' type="button" name="button">Update Keyboard</button>
+              <button class='cud-button' type="button" name="button">Delete Keyboard</button>
+          </div>
+          <div class="tab">
+            <p>Keyboard - Create</p>
+            <form id='createKeyboard' action="/product/keyboard/create" method="post">
+              <label for="keyboardnameCreate">Model:</label>
+              <input id='keyboardnameCreate' type="text" name="keyboardnameCreate" value="" placeholder="Type your name here...">
+              <label for="keyboarddescriptionCreate">Description:</label>
+              <input id='keyboarddescriptionCreate' type="text" name="keyboarddescriptionCreate" value="" placeholder='Type your description here....'>
+              <label for="keyboardbrandCreate">Brand:</label>
+              <select id='keyboardbrandCreate' name="keyboardbrandCreate">
+                <% for(brand of brands) {%>
+                  <option value='<%= brand._id %>'><%= brand.name %></option>
+                <% } %>
+                <!-- <option value="razer">Razer</option>
+                <option value="steelseries">Steelseries</option> -->
+              </select>
+              <label for="keyboardpriceCreate">Price:</label>
+              <input id='keyboardpriceCreate' type="number" name="keyboardpriceCreate" placeholder='Type your price here in EUR....'>
+              <label for="keyboardimageCreate">Image:</label>
+              <input disabled id='keyboardimageCreate' type="file" name="keyboardimageCreate" value="">
+              <label for="keyboardurlCreate">or Image url:</label>
+              <input id='keyboardurlCreate' type="text" name="keyboardurlCreate" value="" placeholder="Type url for the img...">
+              <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+              <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("createKeyboard")' name="button">Create Keyboard</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+      <!-- KEYBOARD UPDATE -->
+      <div class="admin-menu keyboard-update-tab">
+        <div class="before-tab">
+          <div class="create-update-delete">
+              <button class='cud-button' type="button" name="button">Create Keyboard</button>
+              <button class='cud-button' type="button" name="button">Update Keyboard</button>
+              <button class='cud-button' type="button" name="button">Delete Keyboard</button>
+          </div>
+          <div class="tab">
+            <p>Keyboard - Update</p>
+            <form id='updateKeyboard' action="/product/keyboard/update" method="post">
+              <label for="keyboardidUpdate">Id:</label>
+              <input id='keyboardidUpdate' type="text" name="keyboardidUpdate" value="" placeholder="OBJECT ID">
+              <label for="keyboardnameUpdate">Model:</label>
+              <input id='keyboardnameUpdate' type="text" name="keyboardnameUpdate" value="" placeholder="Type your name here...">
+              <label for="keyboarddescriptionUpdate">Description:</label>
+              <input id='keyboarddescriptionUpdate' type="text" name="keyboarddescriptionUpdate" value="" placeholder='Type your description here....'>
+              <label for="keyboardbrandUpdate">Brand:</label>
+              <select id='keyboardbrandUpdate' name="keyboardbrandUpdate" >
+                <% for(brand of brands) {%>
+                  <option value='<%= brand._id %>'><%= brand.name %></option>
+                <% } %>
+              </select>
+              <label for="keyboardpriceUpdate">Price:</label>
+              <input id='keyboardpriceUpdate' type="number" name="keyboardpriceUpdate" value='' placeholder='Type your price here in EUR....'>
+              <label for="keyboardimageUpdate">Image:</label>
+              <input disabled id='keyboardimageUpdate' type="file" name="keyboardimageUpdate" value="">
+              <label for="keyboardurlUpdate">or Image url:</label>
+              <input id='keyboardurlUpdate' type="text" name="keyboardurlUpdate" value="" placeholder="Type url for the img...">
+              <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+              <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("updateKeyboard")' name="button">Update Keyboard</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+        <!-- KEYBOARD DELETE -->
+        <div class="admin-menu keyboard-delete-tab">
+          <div class="before-tab">
+            <div class="create-update-delete">
+                <button class='cud-button' type="button" name="button">Create Keyboard</button>
+                <button class='cud-button' type="button" name="button">Update Keyboard</button>
+                <button class='cud-button' type="button" name="button">Delete Keyboard</button>
+            </div>
+            <div class="tab">
+              <p>Keyboard - DELETE</p>
+              <form id='deleteKeyboard' action="" method="post">
+                <label for="keyboardidDelete">Id:</label>
+                <input id='keyboardidDelete' type="text" name="keyboardidDelete" value="" placeholder="OBJECT ID">
+                <label for="keyboardnameDelete">Model:</label>
+                <label for="keyboarddescriptionDelete">Description:</label>
+                <label for="keyboardbrandDelete">Brand:</label>
+                <label for="keyboardpriceDelete">Price:</label>
+                <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+                <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("deleteKeyboard")' name="button">DELETE Keyboard</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <!-- MOUSE CREATE -->
+        <div class="admin-menu mouse-create-tab">
+          <div class="before-tab">
+            <div class="create-update-delete">
+                <button class='cud-button' type="button" name="button">Create Mouse</button>
+                <button class='cud-button' type="button" name="button">Update Mouse</button>
+                <button class='cud-button' type="button" name="button">Delete Mouse</button>
+            </div>
+            <div class="tab">
+              <p>Mouse - Create</p>
+              <form id='createMouse' action="/product/mouse/create" method="post">
+                <label for="mousenameCreate">Model:</label>
+                <input id='mousenameCreate' type="text" name="mousenameCreate" value="" placeholder="Type your name here...">
+                <label for="mousedescriptionCreate">Description:</label>
+                <input id='mousedescriptionCreate' type="text" name="mousedescriptionCreate" value="" placeholder='Type your description here....'>
+                <label for="mousebrandCreate">Brand:</label>
+                <select id='mousebrandCreate' name="mousebrandCreate">
+                  <% for(brand of brands) {%>
+                    <option value='<%= brand._id %>'><%= brand.name %></option>
+                  <% } %>
+                </select>
+                <label for="mousepriceCreate">Price:</label>
+                <input id='mousepriceCreate' type="number" name="mousepriceCreate" placeholder='Type your price here in EUR....'>
+                <label for="mouseimageCreate">Image:</label>
+                <input disabled id='mouseimageCreate' type="file" name="mouseimageCreate" value="">
+                <label for="mouseurlCreate">or Image url:</label>
+                <input id='mouseurlCreate' type="text" name="mouseurlCreate" value="" placeholder="Type url for the img...">
+                <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+                <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("createMouse")' name="button">Create Mouse</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <!-- MOUSE UPDATE -->
+        <div class="admin-menu mouse-update-tab">
+          <div class="before-tab">
+            <div class="create-update-delete">
+                <button class='cud-button' type="button" name="button">Create Mouse</button>
+                <button class='cud-button' type="button" name="button">Update Mouse</button>
+                <button class='cud-button' type="button" name="button">Delete Mouse</button>
+            </div>
+            <div class="tab">
+              <p>Mouse - Update</p>
+              <form id='updateMouse' action="" method="post">
+                <label for="mouseidUpdate">Id:</label>
+                <input id='mouseidUpdate' type="text" name="mouseidUpdate" value="" placeholder="OBJECT ID">
+                <label for="mousenameUpdate">Model:</label>
+                <input id='mousenameUpdate' type="text" name="mousenameUpdate" value="" placeholder="Type your name here...">
+                <label for="mousedescriptionUpdate">Description:</label>
+                <input id='mousedescriptionUpdate' type="text" name="mousedescriptionUpdate" value="" placeholder='Type your description here....'>
+                <label for="mousebrandUpdate">Brand:</label>
+                <select id='mousebrandUpdate' name="mousebrandUpdate">
+                  <% for(brand of brands) {%>
+                    <option value='<%= brand._id %>'><%= brand.name %></option>
+                  <% } %>
+                </select>
+                <label for="mousepriceUpdate">Price:</label>
+                <input id='mousepriceUpdate' type="number" name="mousepriceUpdate" placeholder='Type your price here in EUR....'>
+                <label for="mouseimageUpdate">Image:</label>
+                <input disabled id='mouseimageUpdate' type="file" name="mouseimageUpdate" value="">
+                <label for="mouseurlUpdate">or Image url:</label>
+                <input id='mouseurlUpdate' type="text" name="mouseurlUpdate" value="" placeholder="Type url for the img...">
+                <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+                <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("updateMouse")' name="button">Update Mouse</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <!-- MOUSE DELETE -->
+        <div class="admin-menu mouse-delete-tab">
+          <div class="before-tab">
+            <div class="create-update-delete">
+                <button class='cud-button' type="button" name="button">Create Mouse</button>
+                <button class='cud-button' type="button" name="button">Update Mouse</button>
+                <button class='cud-button' type="button" name="button">Delete Mouse</button>
+            </div>
+            <div class="tab">
+              <p>Mouse - DELETE</p>
+              <form id='deleteMouse' action="" method="post">
+                <label for="mouseidDelete">Id:</label>
+                <input id='mouseidDelete' type="text" name="mouseidDelete" value="" placeholder="OBJECT ID">
+                <label for="mousenameDelete">Model:</label>
+                <input id='mousenameDelete' type="text" name="mousenameDelete" value="" placeholder="Type your name here...">
+                <label for="mousedescriptionDelete">Description:</label>
+                <input id='mousedescriptionDelete' type="text" name="mousedescriptionDelete" value="" placeholder='Type your description here....'>
+                <label for="mousebrandDelete">Brand:</label>
+                <label for="mousepriceDelete">Price:</label>
+                <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+                <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("deleteMouse")' name="button">DELETE Mouse</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <!-- KEYBOARD INSTANCE CREATE -->
+        <div class="admin-menu keyboard-instance-create-tab">
+          <div class="before-tab">
+            <div class="create-update-delete">
+                <button class='cud-button' type="button" name="button">Create Keyboard Instance</button>
+                <button class='cud-button' type="button" name="button">Update Keyboard Instance</button>
+                <button class='cud-button' type="button" name="button">Delete Keyboard Instance</button>
+            </div>
+            <div class="tab">
+              <p>Keyboard Instance - Create</p>
+              <form id='createKeyboardInstance' action="/product/keyboardinstance/create" method="post">
+                <label for="keyboardInstanceTypeCreate">Type:</label>
+                <select id='keyboardInstanceTypeCreate' name="keyboardInstanceTypeCreate">
+                  <% for (x of keyboards) { %>
+                    <option value="<%= x._id %>"><%= x.model %></option>
+                    <% } %>
+                </select>
+                <label for="keyboardInstanceShopCreate">In shop:</label>
+                <select id='keyboardInstanceShopCreate' name="keyboardInstanceShopCreate">
+                  <% for (x of shops) { %>
+                    <option value="<%= x._id %>"><%= x.name %></option>
+                    <% } %>
+                </select>
+                <label for="keyboardInstanceStatusCreate">Status:</label>
+                <select id='keyboardInstanceStatusCreate' name="keyboardInstanceStatusCreate">
+                  <option value="Available">Available</option>
+                  <option value="Sold">Sold</option>
+                  <option value="Maintenance">Maintenance</option>
+                </select>
+                <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+                <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("createKeyboardInstance")' name="button">Create Keyboard Instance</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <!-- KEYBOARD INSTANCE UPDATE -->
+        <div class="admin-menu keyboard-instance-update-tab">
+          <div class="before-tab">
+            <div class="create-update-delete">
+                <button class='cud-button' type="button" name="button">Create Keyboard Instance</button>
+                <button class='cud-button' type="button" name="button">Update Keyboard Instance</button>
+                <button class='cud-button' type="button" name="button">Delete Keyboard Instance</button>
+            </div>
+            <div class="tab">
+              <p>Keyboard Instance - Update</p>
+              <form id='updateKeyboardInstance' action="" method="post">
+                <label for="keyboardInstanceTypeUpdate">Type:</label>
+                <select id='keyboardInstanceTypeUpdate' name="keyboardInstanceTypeUpdate">
+                  <% for (x of keyboards) { %>
+                    <option value="<%= x._id %>"><%= x.model %></option>
+                    <% } %>
+                </select>
+                <label for="keyboardInstanceShopUpdate">In shop:</label>
+                <select id='keyboardInstanceShopUpdate' name="keyboardInstanceShopUpdate">
+                  <% for (x of shops) { %>
+                    <option value="<%= x._id %>"><%= x.name %></option>
+                    <% } %>
+                </select>
+                <label for="keyboardInstanceStatusUpdate">Status:</label>
+                <select id='keyboardInstanceStatusUpdate' name="keyboardInstanceStatusUpdate">
+                  <option value="Available">Available</option>
+                  <option value="Sold">Sold</option>
+                  <option value="Maintenance">Maintenance</option>
+                </select>
+                <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+                <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("updateKeyboardInstance")' name="button">Update Keyboard Instance</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <!-- KEYBOARD INSTANCE DELETE -->
+        <div class="admin-menu keyboard-instance-delete-tab">
+          <div class="before-tab">
+            <div class="create-update-delete">
+                <button class='cud-button' type="button" name="button">Create Keyboard Instance</button>
+                <button class='cud-button' type="button" name="button">Update Keyboard Instance</button>
+                <button class='cud-button' type="button" name="button">Delete Keyboard Instance</button>
+            </div>
+            <div class="tab">
+              <p>Keyboard Instance - DELETE</p>
+              <form id='deleteKeyboardInstance' action="" method="post">
+                <label for="keyboardInstanceTypeDelete">Type:</label>
+                <label for="keyboardInstanceShopDelete">In shop:</label>
+                <label for="keyboardInstanceStatusDelete">Status:</label>
+                <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+                <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("deleteKeyboardInstance")' name="button">DELETE Keyboard Instance</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <!-- MOUSE INSTANCE CREATE -->
+        <div class="admin-menu mouse-instance-create-tab">
+          <div class="before-tab">
+            <div class="create-update-delete">
+                <button class='cud-button' type="button" name="button">Create Mouse Instance</button>
+                <button class='cud-button' type="button" name="button">Update Mouse Instance</button>
+                <button class='cud-button' type="button" name="button">Delete Mouse Instance</button>
+            </div>
+            <div class="tab">
+              <p>Mouse Instance - Create</p>
+              <form id='createMouseInstance' action="/product/mouseinstance/create" method="post">
+                <label for="mouseInstanceTypeCreate">Type:</label>
+                <select id='mouseInstanceTypeCreate' name="mouseInstanceTypeCreate">
+                  <% for (x of mouses) { %>
+                    <option value="<%= x._id %>"><%= x.model %></option>
+                    <% } %>
+                </select>
+                <label for="mouseInstanceShopCreate">In shop:</label>
+                <select id='mouseInstanceShopCreate' name="mouseInstanceShopCreate">
+                  <% for (x of shops) { %>
+                    <option value="<%= x._id %>"><%= x.name %></option>
+                    <% } %>
+                </select>
+                <label for="mouseInstanceStatusCreate">Status:</label>
+                <select id='mouseInstanceStatusCreate' name="mouseInstanceStatusCreate">
+                  <option value="Available">Available</option>
+                  <option value="Sold">Sold</option>
+                  <option value="Maintenance">Maintenance</option>
+                </select>
+                <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+                <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("createMouseInstance")' name="button">Create Mouse Instance</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <!-- MOUSE INSTANCE UPDATE -->
+        <div class="admin-menu mouse-instance-update-tab">
+          <div class="before-tab">
+            <div class="create-update-delete">
+                <button class='cud-button' type="button" name="button">Create Mouse Instance</button>
+                <button class='cud-button' type="button" name="button">Update Mouse Instance</button>
+                <button class='cud-button' type="button" name="button">Delete Mouse Instance</button>
+            </div>
+            <div class="tab">
+              <p>Mouse Instance - Update</p>
+              <form id='updateMouseInstance' action="" method="post">
+                <label for="mouseInstanceTypeUpdate">Type:</label>
+                <select id='mouseInstanceTypeUpdate' name="mouseInstanceTypeUpdate">
+                  <% for (x of mouses) { %>
+                    <option value="<%= x._id %>"><%= x.model %></option>
+                    <% } %>
+                </select>
+                <label for="mouseInstanceShopUpdate">In shop:</label>
+                <select id='mouseInstanceShopUpdate' name="mouseInstanceShopUpdate">
+                  <% for (x of shops) { %>
+                    <option value="<%= x._id %>"><%= x.name %></option>
+                    <% } %>
+                </select>
+                <label for="mouseInstanceStatusUpdate">Status:</label>
+                <select id='mouseInstanceStatusUpdate' name="mouseInstanceStatusUpdate">
+                  <option value="Available">Available</option>
+                  <option value="Sold">Sold</option>
+                  <option value="Maintenance">Maintenance</option>
+                </select>
+                <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+                <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("updateMouseInstance")' name="button">Update Mouse Instance</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <!-- MOUSE INSTANCE DELETE -->
+        <div class="admin-menu mouse-instance-delete-tab">
+          <div class="before-tab">
+            <div class="create-update-delete">
+                <button class='cud-button' type="button" name="button">Create Mouse Instance</button>
+                <button class='cud-button' type="button" name="button">Update Mouse Instance</button>
+                <button class='cud-button' type="button" name="button">Delete Mouse Instance</button>
+            </div>
+            <div class="tab">
+              <p>Mouse Instance - DELETE</p>
+              <form id='deleteMouseInstance' action="" method="post">
+                <label for="mouseInstanceTypeDelete">Type:</label>
+                <label for="mouseInstanceShopDelete">In shop:</label>
+                <label for="mouseInstanceStatusDelete">Status:</label>
+                <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+                <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("deleteMouseInstance")' name="button">DELETE Mouse Instance</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <!-- SHOP CREATE -->
+        <div class="admin-menu shop-create-tab">
+          <div class="before-tab">
+            <div class="create-update-delete">
+                <button class='cud-button' type="button" name="button">Create Shop</button>
+                <button class='cud-button' type="button" name="button">Update Shop</button>
+                <button class='cud-button' type="button" name="button">Delete Shop</button>
+            </div>
+            <div class="tab">
+              <p>Shop - Create</p>
+              <form id='createShop' action="/shop/create" method="post">
+                <label for="shopnameCreate">Name:</label>
+                <input id='shopnameCreate' type="text" name="shopnameCreate" value="" placeholder="Type shops name here...">
+                <label for="shopaddressCreate">Address:</label>
+                <input id='shopaddressCreate' type="text" name="shopaddressCreate" value="" placeholder="Type shops address here...">
+                <label for="shopemailCreate">E-mail:</label>
+                <input id='shopemailCreate' type="text" name="shopemailsCreate" value="" placeholder="Type shops email here...">
+                <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+                <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("createShop")' name="button">Create Shop</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <!-- SHOP UPDATE -->
+        <div class="admin-menu shop-update-tab">
+          <div class="before-tab">
+            <div class="create-update-delete">
+              <button class='cud-button' type="button" name="button">Create Shop</button>
+              <button class='cud-button' type="button" name="button">Update Shop</button>
+              <button class='cud-button' type="button" name="button">Delete Shop</button>
+            </div>
+            <div class="tab">
+              <p>Shop - Update</p>
+              <form id='updateShop' action="" method="post">
+                <label for="shopnameUpdate">Name:</label>
+                <input id='shopnameUpdate' type="text" name="shopnameUpdate" value="" placeholder="Type shops name here...">
+                <label for="shopaddressUpdate">Address:</label>
+                <input id='shopaddressUpdate' type="text" name="shopaddressUpdate" value="" placeholder="Type shops address here...">
+                <label for="shopemailUpdate">E-mail:</label>
+                <input id='shopemailUpdate' type="text" name="shopemailUpdate" value="" placeholder="Type shops email here...">
+                <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+                <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("updateShop")' name="button">Update Shop</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <!-- SHOP DELETE -->
+        <div class="admin-menu shop-delete-tab">
+          <div class="before-tab">
+            <div class="create-update-delete">
+              <button class='cud-button' type="button" name="button">Create Shop</button>
+              <button class='cud-button' type="button" name="button">Update Shop</button>
+              <button class='cud-button' type="button" name="button">Delete Shop</button>
+            </div>
+            <div class="tab">
+              <p>Shop - Delete</p>
+              <form id='deleteShop' action="" method="post">
+                <label for="shopnameDelete">Name:</label>
+                <input id='shopnameDelete' type="text" name="shopnameDelete" value="" placeholder="Type shops name here...">
+                <label for="shopaddressDelete">Address:</label>
+                <input id='shopaddressDelete' type="text" name="shopaddressDelete" value="" placeholder="Type shops address here...">
+                <label for="shopemailDelete">E-mail:</label>
+                <input id='shopemailDelete' type="text" name="shopemailDelete" value="" placeholder="Type shops email here...">
+                <input type="password" name="adminpassword" value="" placeholder="Admin password here">
+                <button class='mainphotos-productsbutton product-button adminbutton' onclick='submitform("deleteShop")' name="button">Update Shop</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+    </div>
+  </div>
+<script src="/javascripts/admin-room.js" charset="utf-8"></script>
+<%- include('partials/aboutme') -%>
